@@ -17,6 +17,8 @@ import { format } from "date-fns";
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
 
+  console.log("USER: ", user)
+
   const {
     register,
     handleSubmit,

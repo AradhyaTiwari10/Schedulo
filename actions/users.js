@@ -4,9 +4,11 @@ import { db } from "@/lib/prisma";
 import { auth, clerkClient } from "@clerk/nextjs/server";
 
 export async function updateUsername(username) {
-  const { userId } = auth();
+  const { userId } = await auth();
+  console.log("userId", userId);
   if (!userId) {
     throw new Error("Unauthorized");
+
   }
 
   // Check if username is already taken
@@ -28,6 +30,8 @@ export async function updateUsername(username) {
   await clerkClient.users.updateUser(userId, {
     username,
   });
+
+  // console.log("clerkClient: ", clerkClient)
 
   return { success: true };
 }
