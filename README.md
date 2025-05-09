@@ -1,24 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Schedulo - Modern Scheduling Platform
+
+Schedulo is a modern scheduling platform built with Next.js 14, offering a seamless experience for managing appointments and meetings. This project is a feature-rich alternative to popular scheduling tools, built with modern web technologies.
+
+## Features
+
+- 🔐 Secure authentication with Clerk
+- 📅 Interactive calendar management
+- 🎨 Modern UI with Tailwind CSS and Radix UI
+- 📱 Responsive design for all devices
+- 🔄 Real-time updates
+- 📊 Google Calendar integration
+- 🎯 Form validation with Zod
+- 🎨 Beautiful animations and transitions
+
+## Tech Stack
+
+- **Framework:** Next.js 14
+- **Authentication:** Clerk
+- **Database:** Prisma with PostgreSQL
+- **Styling:** Tailwind CSS
+- **UI Components:** Radix UI
+- **Form Handling:** React Hook Form
+- **Date Management:** date-fns
+- **Validation:** Zod
+- **API Integration:** Google Calendar API
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v18 or higher)
+- npm or yarn
+- PostgreSQL database
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/schedulo.git
+cd schedulo
+```
 
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up your environment variables:
+Create a `.env` file in the root directory and add the following:
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+DATABASE_URL=your_database_url
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+```
+
+4. Initialize the database:
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+5. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Start the development server
+- `npm run build` - Build the application for production
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint for code linting
+
+## Project Structure
+
+```
+schedulo/
+├── app/              # Next.js app directory
+├── components/       # Reusable UI components
+├── lib/             # Utility functions and configurations
+├── actions/         # Server actions
+├── hooks/           # Custom React hooks
+├── public/          # Static assets
+└── prisma/          # Database schema and migrations
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Learn More
 
