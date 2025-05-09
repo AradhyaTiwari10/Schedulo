@@ -22,30 +22,54 @@ export async function createBooking(bookingData) {
       "oauth_google"
     );
 
-    const token = data[0]?.token;
+    const accessToken = data[0]?.token;
+    const refreshToken = data[0]?.refreshToken; // Optional
 
-    if (!token) {
+    if (!accessToken) {
       throw new Error("Event creator has not connected Google Calendar");
     }
 
     // Set up Google OAuth client
     const oauth2Client = new google.auth.OAuth2();
-    oauth2Client.setCredentials({ access_token: token });
+    oauth2Client.setCredentials({
+      access_token: accessToken,
+      refresh_token: refreshToken, // If available
+    });
+
+    // Optionally refresh access token
+    // try {
+    //   const { token: validToken } = await oauth2Client.getAccessToken();
+    //   oauth2Client.setCredentials({ access_token: validToken });
+    // } catch (e) {
+    //   throw new Error("Could not refresh Google access token. Please reconnect.");
+    // }
 
     const calendar = google.calendar({ version: "v3", auth: oauth2Client });
 
-    // Create Google Meet link
+    // Create Google Meet event and send email invites
     const meetResponse = await calendar.events.insert({
       calendarId: "primary",
       conferenceDataVersion: 1,
+      sendUpdates: "all", // 💡 This sends email invites to attendees
       requestBody: {
         summary: `${bookingData.name} - ${event.title}`,
         description: bookingData.additionalInfo,
-        start: { dateTime: bookingData.startTime },
-        end: { dateTime: bookingData.endTime },
-        attendees: [{ email: bookingData.email }, { email: event.user.email }],
+        start: {
+          dateTime: bookingData.startTime,
+          timeZone: "Asia/Kolkata",
+        },
+        end: {
+          dateTime: bookingData.endTime,
+          timeZone: "Asia/Kolkata",
+        },
+        attendees: [
+          { email: bookingData.email },
+          { email: event.user.email },
+        ],
         conferenceData: {
-          createRequest: { requestId: `${event.id}-${Date.now()}` },
+          createRequest: {
+            requestId: `${event.id}-${Date.now()}`,
+          },
         },
       },
     });
@@ -53,7 +77,7 @@ export async function createBooking(bookingData) {
     const meetLink = meetResponse.data.hangoutLink;
     const googleEventId = meetResponse.data.id;
 
-    // Create booking in database
+    // Store booking in DB
     const booking = await db.booking.create({
       data: {
         eventId: event.id,
