@@ -1,42 +1,19 @@
 # Schedulo - Modern Scheduling Platform
 
-<div align="center">
-  
-  ![Schedulo](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=40&pause=1000&color=2E7D32&center=true&vCenter=true&width=600&height=100&lines=Welcome+to+Schedulo!;Your+Modern+Scheduling+Solution)
-  
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=25&pause=1000&color=2E7D32&center=true&vCenter=true&width=600&height=50&lines=Schedule+with+Ease+%7C+Meet+with+Confidence" alt="Schedulo Tagline">
-  
-</div>
+A modern scheduling platform built with Next.js 14, offering a seamless experience for managing appointments and meetings. This project is a feature-rich alternative to popular scheduling tools, built with modern web technologies.
 
-Schedulo is a modern scheduling platform built with Next.js 14, offering a seamless experience for managing appointments and meetings. This project is a feature-rich alternative to popular scheduling tools, built with modern web technologies.
+## Features
 
-## ✨ Features
+- 🔐 Secure authentication with Clerk
+- 📅 Interactive calendar management
+- 🎨 Modern UI with Tailwind CSS and Radix UI
+- 📱 Responsive design for all devices
+- 🔄 Real-time updates
+- 📊 Google Calendar integration
+- 🎯 Form validation with Zod
+- ✨ Beautiful animations and transitions
 
-<div align="center">
-  
-  | Feature | Description |
-  |---------|-------------|
-  | 🔐 **Authentication** | Secure authentication with Clerk |
-  | 📅 **Calendar** | Interactive calendar management |
-  | 🎨 **UI/UX** | Modern UI with Tailwind CSS and Radix UI |
-  | 📱 **Responsive** | Works on all devices |
-  | 🔄 **Real-time** | Live updates and notifications |
-  | 📊 **Integration** | Google Calendar integration |
-  | 🎯 **Validation** | Form validation with Zod |
-  | ✨ **Animations** | Beautiful transitions and effects |
-  
-</div>
-
-## 🛠️ Tech Stack
-
-<div align="center">
-  
-  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
-  <img src="https://img.shields.io/badge/Clerk-Auth-blue?style=for-the-badge&logo=clerk&logoColor=white" alt="Clerk">
-  <img src="https://img.shields.io/badge/Prisma-DB-purple?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma">
-  <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind">
-  
-</div>
+## Tech Stack
 
 - **Framework:** Next.js 14
 - **Authentication:** Clerk
@@ -48,14 +25,14 @@ Schedulo is a modern scheduling platform built with Next.js 14, offering a seaml
 - **Validation:** Zod
 - **API Integration:** Google Calendar API
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 - Node.js (v18 or higher)
 - npm or yarn
 - PostgreSQL database
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone the repository:
 ```bash
@@ -95,20 +72,14 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-## 📜 Available Scripts
+## Available Scripts
 
-<div align="center">
-  
-  | Command | Description |
-  |---------|-------------|
-  | `npm run dev` | Start development server |
-  | `npm run build` | Build for production |
-  | `npm run start` | Start production server |
-  | `npm run lint` | Run ESLint |
-  
-</div>
+- `npm run dev` - Start the development server
+- `npm run build` - Build the application for production
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint for code linting
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 schedulo/
@@ -121,22 +92,13 @@ schedulo/
 └── prisma/          # Database schema and migrations
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-<div align="center">
-  
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=20&pause=1000&color=2E7D32&center=true&vCenter=true&width=600&height=50&lines=Made+with+%E2%9D%A4%EF%B8%8F+by+Your+Team" alt="Made with love">
-  
-  <br>
-  
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
-  
-</div>
+Made with ❤️ by Your Team
 
 ## Learn More
 
