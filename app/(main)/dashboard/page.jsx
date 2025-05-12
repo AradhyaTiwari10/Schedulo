@@ -16,8 +16,7 @@ import { format } from "date-fns";
 
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
-
-  console.log("USER: ", user)
+  const [origin, setOrigin] = React.useState('');
 
   const {
     register,
@@ -29,9 +28,16 @@ export default function DashboardPage() {
   });
 
   useEffect(() => {
-    setValue("username", user?.username);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoaded]);
+    if (typeof window !== 'undefined') {
+      setOrigin(window.location.origin);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded && user) {
+      setValue("username", user.username);
+    }
+  }, [isLoaded, user, setValue]);
 
   const {
     loading: loadingUpdates,
@@ -40,8 +46,10 @@ export default function DashboardPage() {
   } = useFetch(getLatestUpdates);
 
   useEffect(() => {
-    (async () => await fnUpdates())();
-  }, []);
+    if (isLoaded) {
+      fnUpdates();
+    }
+  }, [isLoaded, fnUpdates]);
 
   const { loading, error, fn: fnUpdateUsername } = useFetch(updateUsername);
 
@@ -49,8 +57,16 @@ export default function DashboardPage() {
     await fnUpdateUsername(data.username);
   };
 
+  if (!isLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <BarLoader width={"100%"} color="#36d7b7" />
+      </div>
+    );
+  }
+
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto px-4 py-8 space-y-8">
       <Card>
         <CardHeader>
           <CardTitle>Welcome, {user?.firstName}!</CardTitle>
@@ -91,7 +107,7 @@ export default function DashboardPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
               <div className="flex items-center gap-2">
-                <span>{window?.location.origin}/</span>
+                <span>{origin}/</span>
                 <Input {...register("username")} placeholder="username" />
               </div>
               {errors.username && (

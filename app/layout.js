@@ -4,7 +4,12 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/header";
 import CreateEventDrawer from "@/components/create-event";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+});
 
 export const metadata = {
   title: "Schedulo",
