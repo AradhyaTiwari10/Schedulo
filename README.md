@@ -1,6 +1,9 @@
-# 🗓️ Schedulo
+# 🗓️ Schedulo 
+
 
 <div align="center">
+
+
 
 ![Schedulo Banner](https://img.shields.io/badge/Schedulo-Smart_Scheduling_Platform-2D3748?style=for-the-badge&logo=calendar)
 
@@ -12,6 +15,8 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-336791?style=for-the-badge&logo=postgresql)](https://www.postgresql.org/)
 
 > A modern scheduling platform that helps professionals manage their time effectively and streamline meeting bookings.
+
+# **Live Demo:** [schedulo-blue.vercel.app](https://schedulo-blue.vercel.app)
 
 [![Features](https://img.shields.io/badge/Features-✨-yellow)](https://github.com/AradhyaTiwari10/Schedulo#-features)
 [![Tech Stack](https://img.shields.io/badge/Tech_Stack-🛠️-orange)](https://github.com/AradhyaTiwari10/Schedulo#-tech-stack)
