@@ -90,8 +90,8 @@
 ### Backend
 | Category | Technologies |
 |----------|--------------|
-| Runtime | Node.js |
-| Database | PostgreSQL |
+| Database | Neon DB |
+| Database type | PostgreSQL |
 | ORM | Prisma 6.7 |
 | Authentication | Clerk |
 | API Routes | Next.js API Routes |
@@ -103,7 +103,7 @@
 | Package Manager | npm |
 | Code Quality | ESLint |
 | Version Control | Git |
-| Deployment | Netlify |
+| Deployment | Vercel |
 
 ## 🚀 Getting Started
 
@@ -112,7 +112,8 @@
 - PostgreSQL database
 - Clerk account
 - Google Cloud Platform account
-
+- Neon DB
+  
 ### Installation
 
 1. **Clone the repository**
