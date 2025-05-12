@@ -1,12 +1,8 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  // output   = "../lib/generated/prisma",
   binaryTargets = ["native", "darwin-arm64", "rhel-openssl-3.0.x"]
 }
 
@@ -90,4 +86,4 @@ enum DayOfWeek {
   FRIDAY
   SATURDAY
   SUNDAY
-}
+} 
