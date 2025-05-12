@@ -25,7 +25,7 @@ const features = [
 ];
 
 const howItWorks = [
-  { step: "Sign Up", description: "Create your free Schedulrr account" },
+  { step: "Sign Up", description: "Create your free Schedulo account" },
   {
     step: "Set Availability",
     description: "Define when you're available for meetings",
@@ -50,7 +50,7 @@ const Home = () => {
             Simplify Your Scheduling
           </h1>
           <p className="text-xl text-gray-600 mb-10">
-            Schedulrr helps you manage your time effectively. Create events, set
+            Schedulo helps you manage your time effectively. Create events, set
             your availability, and let others book time with you seamlessly.
           </p>
           <Link href={"/dashboard"}>
@@ -128,8 +128,8 @@ const Home = () => {
         <h2 className="text-3xl font-bold mb-4">
           Ready to Simplify Your Scheduling?
         </h2>
-        <p className="text-xl mb-6">
-          Join thousands of professionals who trust Schedulrr for efficient time
+        <p className="text-xl text-gray-600 mb-10">
+          Join thousands of professionals who trust Schedulo for efficient time
           management.
         </p>
         <Link href={"/dashboard"}>

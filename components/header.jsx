@@ -17,7 +17,7 @@ async function Header() {
           src="/logo.png"
           width="150"
           height="60"
-          alt="Schedulrr Logo"
+          alt="Schedulo Logo"
           className="h-16 w-auto"
         />
       </Link>
