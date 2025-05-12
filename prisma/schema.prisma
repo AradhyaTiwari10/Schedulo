@@ -1,43 +1,43 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
-  binaryTargets = ["native", "darwin-arm64", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL") // Used for direct connection
-  relationMode = "prisma" // Better handling of relations
 }
 
 model User {
-  id           String        @id @default(uuid())
-  clerkUserId  String        @unique
-  email        String        @unique
-  username     String?       @unique
+  id           String   @id @default(uuid())
+  clerkUserId  String   @unique
+  email        String   @unique
+  username     String?  @unique
   name         String?
   imageUrl     String?
-  events       Event[]       @relation("UserEvents")
-  bookings     Booking[]     @relation("UserBookings")
+  events       Event[]  @relation("UserEvents")
+  bookings     Booking[] @relation("UserBookings")
   availability Availability?
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 model Event {
-  id          String    @id @default(uuid())
+  id          String   @id @default(uuid())
   title       String
   description String?
   duration    Int
   userId      String
-  user        User      @relation("UserEvents", fields: [userId], references: [id])
+  user        User     @relation("UserEvents", fields: [userId], references: [id])
   bookings    Booking[]
-  isPrivate   Boolean   @default(true)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  isPrivate   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Booking {
@@ -52,31 +52,31 @@ model Booking {
   startTime      DateTime
   endTime        DateTime
   meetLink       String // Google Meet link for the booking
-  googleEventId  String
+  googleEventId  String  // Required Google Calendar event ID
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
 
 model Availability {
-  id     String @id @default(uuid())
-  userId String @unique
-  user   User   @relation(fields: [userId], references: [id])
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
 
-  days DayAvailability[]
+  days        DayAvailability[]
 
-  timeGap Int // Minimum gap between bookings in minutes
+  timeGap     Int      // Minimum gap between bookings in minutes
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model DayAvailability {
-  id             String    @id @default(uuid())
+  id             String @id @default(uuid())
   availabilityId String
   day            DayOfWeek
   startTime      DateTime
   endTime        DateTime
-
+  
   availability Availability @relation(fields: [availabilityId], references: [id], onDelete: Cascade)
 }
 
@@ -88,4 +88,4 @@ enum DayOfWeek {
   FRIDAY
   SATURDAY
   SUNDAY
-} 
+}
